@@ -1,0 +1,11 @@
+body {
+
+}
+h1 {
+    font-family: Helvetica;
+    background-color: rgb(77, 71, 71);
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+}
