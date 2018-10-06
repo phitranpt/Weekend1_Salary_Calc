@@ -17,6 +17,9 @@ $('document').ready(onReady);
 function onReady() {
     console.log('JQ Works!');
     $('#addEmployeeButton').on('click', addEmployee);
+    $('#addEmployeeButton').on('click', appendEmployeeList);
+    $('#addEmployeeButton').on('click', averageCost);
+    $('.myTable').on('click', '.delete', deleteEmployee);
 }
 
 //add employee function
@@ -31,8 +34,6 @@ function addEmployee() {
     let newEmployee = new Employee(firstNameIn, lastNameIn, idNumIn, titleIn, parseInt(annualSalaryIn) );
     employeeArray.push(newEmployee);
     console.log(employeeArray);
-    appendEmployeeList();
-    averageCost();
     clearInput();
 }
 
@@ -50,8 +51,9 @@ function appendEmployeeList() {
         let lastTable = `<td>${person.lastName}</td>`;
         let idTable = `<td>${person.idNum}</td>`;
         let titleTable = `<td>${person.title}</td>`;
-        let annualSalaryTable = `<td>${person.annualSalary}</td></tr>`;
-        let newRow = firstTable + lastTable + idTable + titleTable + annualSalaryTable;
+        let annualSalaryTable = `<td>${person.annualSalary}</td>`;
+        let deleteButton = `<td><button class="delete">Delete</button></td></tr>`
+        let newRow = firstTable + lastTable + idTable + titleTable + annualSalaryTable + deleteButton;
         $('table tbody').append(newRow);
     }
 }
@@ -76,9 +78,23 @@ function averageCost() {
         //if over $20,000
         if (total>20000) {
             console.log('over budget!');
-            $('totalCost').parent().toggleClass('overBudget');
+            $('#totalCost').parent().toggleClass('overBudget');
         }
     }
     $('#totalCost').append(`Total Monthly: $` + ` ${total.toFixed(2)}`);
+}
+
+//delete employee
+function deleteEmployee() {
+    console.log('delete button works!');
+    let selectedItem = $(this).closest('tr').text();
+    console.log(selectedItem);  
+    for (let i=0; i<employeeArray.length; i++) {
+        if (selectedItem.includes(employeeArray[i])) {
+            employeeArray.splice(i,1);
+            $(this).closest('tr').remove();
+            return true;
+        }
+    }
 }
 
