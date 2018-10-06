@@ -36,10 +36,20 @@ function addEmployee() {
 
 //append employee into table
 function appendEmployeeList() {
-    let element = $('#firstNameTable');
+    let element = $('.myTable');
     element.empty();
     for (let person of employeeArray) {
-        console.log(person);
-        element.append(person.firstName);
+        console.log(person.firstName);
+        console.log(person.lastName);
+        console.log(person.idNum);
+        console.log(person.title);
+        console.log(person.annualSalary);
+        let firstTable = `<tr><td>${person.firstName}</td>`;
+        let lastTable = `<td>${person.lastName}</td>`;
+        let idTable = `<td>${person.idNum}</td>`;
+        let titleTable = `<td>${person.title}</td>`;
+        let annualSalaryTable = `<td>${person.annualSalary}</td></tr>`;
+        let newRow = firstTable + lastTable + idTable + titleTable + annualSalaryTable;
+        $('table tbody').append(newRow);
     }
 }
