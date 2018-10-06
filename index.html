@@ -10,37 +10,44 @@
     <title>Weekend Challenge 1: Salary Calculator</title>
 </head>
 <body>
-    <h1>Salary Calculator</h1>
-    </div>
+    <div class="salaryTitle">
+        <h1>Salary Calculator</h1>
+    </div>   
+    <div class="addEmployeeTitle">
         <h2>Add Employees</h2>
+    </div>
+    <div><!--Add Employee Here-->
         <form>
-            <!--Add Employee Here-->
-            <input id ="First Name" placeholder="First Name" type="text">
-            <input id ="Last Name" placeholder="Last Name" type="text">
-            <input id ="ID Number" placeholder="ID Number" type="text">
-            <input id ="Title" placeholder="Title" type="text">
-            <input id ="Annual Salary" placeholder="Annual Salary" type="text"></br>
-            <button id="addEmployee">Submit</button>
+            <input id ="firstName" placeholder="First Name" type="text">
+            <input id ="lastName" placeholder="Last Name" type="text">
+            <input id ="idNum" placeholder="ID Number" type="text">
+            <input id ="title" placeholder="Title" type="text">
+            <input id ="annualSalary" placeholder="Annual Salary" type="text"></br></br>
+            <button id="addEmployeeButton">Submit</button>
         </form>
     </div>
     <div>
         <h2>Employee List</h2>
-        <!--Employee List Here-->
+    </div>
+    <div><!--Employee List Here-->
         <table>
-            <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>ID Number</th>
-                <th>Title</th>
-                <th>Annual Salary</th>
-            </tr>
-            <tr>
-                <td>Jen<!--Names in table--></td>
-            </tr>
+            <thead>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>ID Number</th>
+                    <th>Title</th>
+                    <th>Annual Salary</th>
+            </thead>
+
+            <tbody>
+                    <td><!--First Name's Here--></td>
+                    <td><!--Last Name's Here--></td>
+                    <td><!--ID Number Here--></td>
+                    <td><!--Title Here--></td>
+                    <td><!--Annual Salary Here--></td>
+            </tbody>
         </table>
     </div>
-    <div>
-        <h2>Total Monthly:</h2>
-    </div>
+       
 </body>
 </html>
