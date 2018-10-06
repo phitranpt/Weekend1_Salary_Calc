@@ -28,10 +28,12 @@ function addEmployee() {
     let idNumIn = $('#idNum').val();
     let titleIn = $('#title').val();
     let annualSalaryIn = $('#annualSalary').val();
-    let newEmployee = new Employee(firstNameIn, lastNameIn, idNumIn, titleIn, annualSalaryIn);
+    let newEmployee = new Employee(firstNameIn, lastNameIn, idNumIn, titleIn, parseInt(annualSalaryIn) );
     employeeArray.push(newEmployee);
     console.log(employeeArray);
     appendEmployeeList();
+    averageCost();
+    clearInput();
 }
 
 //append employee into table
@@ -53,3 +55,29 @@ function appendEmployeeList() {
         $('table tbody').append(newRow);
     }
 }
+
+//clear input
+function clearInput() {
+    $('#firstName').val('');
+    $('#lastName').val('');
+    $('#idNum').val('');
+    $('#title').val('');
+    $('#annualSalary').val('');
+}
+
+//add annual salary and get monthly cost
+function averageCost() {
+    let element2 = $('#totalCost')
+    element2.empty();
+    let total = 0;
+    for (let sum of employeeArray) {
+        total += (sum.annualSalary/12);
+        console.log(total);
+        //if over $20,000
+        if (total>20000) {
+            console.log('over budget!');
+        }
+    }
+    $('#totalCost').append(`Total Monthly: $` + ` ${total.toFixed(2)}`);
+}
+
