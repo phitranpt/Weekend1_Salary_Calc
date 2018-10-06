@@ -76,6 +76,7 @@ function averageCost() {
         //if over $20,000
         if (total>20000) {
             console.log('over budget!');
+            $('totalCost').parent().toggleClass('overBudget');
         }
     }
     $('#totalCost').append(`Total Monthly: $` + ` ${total.toFixed(2)}`);
