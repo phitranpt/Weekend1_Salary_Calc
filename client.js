@@ -19,7 +19,7 @@ function onReady() {
     $('#addEmployeeButton').on('click', addEmployee);
     $('#addEmployeeButton').on('click', appendEmployeeList);
     $('#addEmployeeButton').on('click', averageCost);
-    $('.myTable').on('click', '.delete', deleteEmployee);
+    $('.myTable').on('click', '#delete', deleteEmployee);
 }
 
 //add employee function
@@ -52,7 +52,7 @@ function appendEmployeeList() {
         let idTable = `<td>${person.idNum}</td>`;
         let titleTable = `<td>${person.title}</td>`;
         let annualSalaryTable = `<td>${person.annualSalary}</td>`;
-        let deleteButton = `<td><button class="delete">Delete</button></td></tr>`
+        let deleteButton = `<td><button id="delete">Delete</button></td></tr>`;
         let newRow = firstTable + lastTable + idTable + titleTable + annualSalaryTable + deleteButton;
         $('table tbody').append(newRow);
     }
@@ -79,22 +79,21 @@ function averageCost() {
         if (total>20000) {
             console.log('over budget!');
             $('#totalCost').parent().toggleClass('overBudget');
-        }
-    }
+        }  
+    } 
     $('#totalCost').append(`Total Monthly: $` + ` ${total.toFixed(2)}`);
 }
 
 //delete employee
 function deleteEmployee() {
     console.log('delete button works!');
-    let selectedItem = $(this).closest('tr').text();
+    let selectedItem = $(this).closest('tr').find('td').text();;
     console.log(selectedItem);  
     for (let i=0; i<employeeArray.length; i++) {
-        if (selectedItem.includes(employeeArray[i])) {
+        if (selectedItem.includes(employeeArray[i].firstName)) {
             employeeArray.splice(i,1);
-            $(this).closest('tr').remove();
+            $(this).closest('tr').find('td').remove();
             return true;
         }
     }
 }
-
