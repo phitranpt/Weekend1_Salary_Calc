@@ -51,7 +51,7 @@ function appendEmployeeList() {
         let lastTable = `<td>${person.lastName}</td>`;
         let idTable = `<td>${person.idNum}</td>`;
         let titleTable = `<td>${person.title}</td>`;
-        let annualSalaryTable = `<td>${person.annualSalary}</td>`;
+        let annualSalaryTable = `<td>${person.annualSalary.toLocaleString()}</td>`;
         let deleteButton = `<td><button id="delete">Delete</button></td></tr>`;
         let newRow = firstTable + lastTable + idTable + titleTable + annualSalaryTable + deleteButton;
         $('table tbody').append(newRow);
