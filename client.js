@@ -51,7 +51,7 @@ function appendEmployeeList() {
         let lastTable = `<td>${person.lastName}</td>`;
         let idTable = `<td>${person.idNum}</td>`;
         let titleTable = `<td>${person.title}</td>`;
-        let annualSalaryTable = `<td>${person.annualSalary.toLocaleString()}</td>`;
+        let annualSalaryTable = `<td>${person.annualSalary.toFixed(2)}</td>`;
         let deleteButton = `<td><button id="delete">Delete</button></td></tr>`;
         let newRow = firstTable + lastTable + idTable + titleTable + annualSalaryTable + deleteButton;
         $('table tbody').append(newRow);
@@ -81,7 +81,9 @@ function averageCost() {
             $('#totalCost').parent().toggleClass('overBudget');
         }  
     } 
-    $('#totalCost').append(`Total Monthly: $` + ` ${total.toFixed(2)}`);
+    $('#totalCost').append(`Monthly Cost: $` + `${total.toFixed(2)}`);
+    //return total when delete button is pushed
+    return total;
 }
 
 //delete employee
@@ -92,7 +94,10 @@ function deleteEmployee() {
     for (let i=0; i<employeeArray.length; i++) {
         if (selectedItem.includes(employeeArray[i].firstName)) {
             employeeArray.splice(i,1);
-            $(this).closest('tr').find('td').remove();
+            $(this).closest('tr').find('td').remove();   
+            //when delete buton is clicked run averageCost() and return total 
+            averageCost();
+            console.log(averageCost() );
             return true;
         }
     }
