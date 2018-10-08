@@ -32,8 +32,17 @@ function addEmployee() {
     let titleIn = $('#title').val();
     let annualSalaryIn = $('#annualSalary').val();
     let newEmployee = new Employee(firstNameIn, lastNameIn, idNumIn, titleIn, parseInt(annualSalaryIn) );
-    employeeArray.push(newEmployee);
-    console.log(employeeArray);
+    let ifNewEmployee = firstNameIn + lastNameIn + idNumIn + titleIn + annualSalaryIn;
+    //if inputs are empty or NaN then pop up an alert and not add to list
+    if (ifNewEmployee == '' || isNaN(annualSalaryIn) == true) {
+        employeeArray.splice(employeeArray.length, 1);
+        alert ('please enter valid input!');
+        return false;
+    }
+    else {
+        employeeArray.push(newEmployee);
+        console.log(employeeArray);
+    }
     clearInput();
 }
 
@@ -95,7 +104,7 @@ function deleteEmployee() {
         if (selectedItem.includes(employeeArray[i].firstName)) {
             employeeArray.splice(i,1);
             $(this).closest('tr').find('td').remove();   
-            //when delete buton is clicked run averageCost() and return total 
+            //when delete button is clicked run averageCost() and return total 
             averageCost();
             console.log(averageCost() );
             return true;

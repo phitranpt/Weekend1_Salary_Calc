@@ -58,12 +58,8 @@ tbody tr:nth-child(odd) {
 thead, tbody, tr ,th, td {
     border: 1px solid black;
     height: 15px; 
-    margin: 0px;
-}
-
-td, th {
-    text-align: center;
     padding: 10px;
+    text-align: center;
 }
 
 #totalCost {
