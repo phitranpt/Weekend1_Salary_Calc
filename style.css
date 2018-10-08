@@ -23,6 +23,7 @@ body {
 }
 
 .addEmployeeTitle {
+    padding-top: 50px;
     font-family: 'Trebuchet MS';
     background-color: rgb(255, 255, 102);
 }
@@ -34,7 +35,7 @@ body {
 
 form {
    text-align: center;
-   padding-bottom: 20px;
+   padding-bottom: 50px;
 }
 
 #firstName, #lastName, #idNum, #title, #annualSalary {
@@ -43,7 +44,11 @@ form {
 }
 
 #addEmployeeButton {
-
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    border: 3px solid rgb(80, 80, 80);
+    border-radius: 10px;
 }
 
 table {
@@ -60,11 +65,14 @@ thead, tbody, tr ,th, td {
     height: 15px; 
     padding: 10px;
     text-align: center;
+    font-family: 'Trebuchet MS';
 }
 
 #totalCost {
-    padding: 20px 0px 20px 0px;
+    margin-top: 50px;
+    padding: 10px 10px 10px 0px;
     font-family: 'Trebuchet MS';
+    text-align: end;
 }
 
 .overBudget {

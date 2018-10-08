@@ -31,10 +31,9 @@ function addEmployee() {
     let idNumIn = $('#idNum').val();
     let titleIn = $('#title').val();
     let annualSalaryIn = $('#annualSalary').val();
-    let newEmployee = new Employee(firstNameIn, lastNameIn, idNumIn, titleIn, parseInt(annualSalaryIn) );
-    let ifNewEmployee = firstNameIn + lastNameIn + idNumIn + titleIn + annualSalaryIn;
-    //if inputs are empty or NaN then pop up an alert and not add to list
-    if (ifNewEmployee == '' || isNaN(annualSalaryIn) == true) {
+    let newEmployee = new Employee(firstNameIn, lastNameIn, parseInt(idNumIn), titleIn, parseInt(annualSalaryIn) );
+    //if inputs are empty, idNum or annualSalary is NaN then display alert box
+    if (firstNameIn == '' || lastNameIn == '' || idNumIn == '' || titleIn == '' || annualSalaryIn == '' || isNaN(annualSalaryIn) == true || isNaN(idNumIn) == true) {
         employeeArray.splice(employeeArray.length, 1);
         alert ('please enter valid input!');
         return false;
